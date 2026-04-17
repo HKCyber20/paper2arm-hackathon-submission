@@ -1,0 +1,14 @@
+{
+  "title": "Anion optimization for bifunctional surface passivation in perovskite solar cells",
+  "authors": ["Xu, J.", "Chen, B.", "Grater, L.", "et al."],
+  "journal": "Nature Materials",
+  "year": 2023,
+  "volume": 22,
+  "pages": "1507-1514",
+  "doi": "10.1038/s41563-023-01705-y",
+  "corresponding_author": "Edward H. Sargent",
+  "affiliation": "University of Toronto / Northwestern University",
+  "keywords": ["perovskite", "solar cells", "anion optimization", "machine learning", "surface passivation"],
+  "challenge_id": "xu-2023-nat-mater-1507",
+  "discipline": "materials_science"
+}
