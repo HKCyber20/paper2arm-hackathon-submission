@@ -1,5 +1,6 @@
 # Dockerfile for Paper2ARM Hackathon - Q6: Anion Optimization
 # Nature Materials 22, 1507-1514 (2023)
+# Compatible with DeployMaster (no COPY/ADD instructions)
 
 FROM registry.dp.tech/dptech/ubuntu:20.04-py3.10
 
@@ -20,19 +21,19 @@ RUN apt-get update && apt-get install -y \
 RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple
 
 # 安装Python依赖
-COPY requirements.txt /tmp/requirements.txt
-RUN pip install --no-cache-dir -r /tmp/requirements.txt
+RUN pip install --no-cache-dir \
+    numpy==1.24.3 \
+    pandas==2.0.3 \
+    matplotlib==3.7.2 \
+    scikit-learn==1.3.0 \
+    seaborn==0.12.2
 
 # 创建工作目录
 WORKDIR /workspace
-
-# 复制代码和数据
-COPY code/ /workspace/code/
-COPY dataset/ /workspace/dataset/
 
 # 设置环境变量
 ENV PYTHONPATH=/workspace
 ENV PYTHONUNBUFFERED=1
 
 # 默认命令
-CMD ["python", "/workspace/code/main.py"]
+CMD ["python", "-c", "print('Environment ready for Paper2ARM Hackathon Q6')"]
