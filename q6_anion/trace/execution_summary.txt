@@ -1,0 +1,25 @@
+Paper2Arm Hackathon Q6: Anion Optimization ML Classification
+============================================================
+
+Dataset: 267 molecules x 19 features
+Class distribution: 200 high Eb, 67 low Eb
+
+Round 1 Results (17 features):
+  Random Forest: AUC=0.9871, Acc=0.8780
+  Gradient Boosting: AUC=0.9839, Acc=0.9024
+  Logistic Regression: AUC=1.0000, Acc=0.9756
+  SVC: AUC=0.9484, Acc=0.9268
+
+Round 2 Results (4 features: ['num_O', 'TPSA', 'HBA', 'HOMO']):
+  Random Forest: AUC=0.9887, Acc=0.9512
+  Gradient Boosting: AUC=0.9613, Acc=0.8780
+  Logistic Regression: AUC=1.0000, Acc=0.9512
+  SVC: AUC=0.9968, Acc=0.9512
+
+10-fold CV (RF, 4 features): 0.9016 ± 0.1010
+
+Validation:
+  RF Round 1 AUC >= 0.95: PASS (0.9871)
+  Best model AUC >= 0.90: PASS (1.0000)
+  RF Round 2 AUC >= 0.85: PASS (0.9887)
+  Top 4 features correct: PASS

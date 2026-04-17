@@ -1,0 +1,35 @@
+{
+  "milestone": "Milestone 2",
+  "task": "Top-500 gene overlap",
+  "n_our_genes": 500,
+  "n_gold_genes": 500,
+  "n_overlap": 175,
+  "overlap_rate": 35.0,
+  "status": "PASS",
+  "top500_genes": [
+    "GENE_44086",
+    "GENE_26089",
+    "GENE_03071",
+    "GENE_31155",
+    "GENE_71160",
+    "GENE_55116",
+    "GENE_80119",
+    "GENE_94195",
+    "GENE_47135",
+    "GENE_05010",
+    "..."
+  ],
+  "gold_standard_genes": [
+    "GENE_54009",
+    "GENE_85155",
+    "GENE_54006",
+    "GENE_13185",
+    "GENE_20126",
+    "GENE_62017",
+    "GENE_85073",
+    "GENE_17052",
+    "GENE_10120",
+    "GENE_13114",
+    "..."
+  ]
+}

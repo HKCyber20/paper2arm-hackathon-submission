@@ -1,0 +1,8 @@
+{
+  "data_integrity": true,
+  "anchor_classification": true,
+  "ctcf_ratio": true,
+  "smc1_trend": true,
+  "h3k27ac_trend": true,
+  "h3k4me3_trend": true
+}

@@ -1,0 +1,12 @@
+{
+  "milestone": "Milestone 1",
+  "task": "TSA-seq Score correlation",
+  "pearson_r": 0.9434118616125351,
+  "p_value": 0.0,
+  "n_bins": 100000,
+  "status": "PASS",
+  "dmso_mean": 0.3882984630188093,
+  "dmso_std": 1.2920401513531319,
+  "tpl_mean": 0.29454778203982546,
+  "tpl_std": 1.260787581294578
+}

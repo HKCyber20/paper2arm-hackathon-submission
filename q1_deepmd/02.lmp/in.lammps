@@ -1,0 +1,36 @@
+# LAMMPS input for CH4 MD simulation with DeePMD
+
+units           metal
+atom_style      atomic
+boundary        p p p
+
+# Create atoms
+region          box block -5 5 -5 5 -5 5
+create_box      2 box
+create_atoms    1 single 0.0 0.0 0.0
+create_atoms    2 single 0.6 0.6 0.6
+create_atoms    2 single -0.6 -0.6 0.6
+create_atoms    2 single -0.6 0.6 -0.6
+create_atoms    2 single 0.6 -0.6 -0.6
+
+mass            1 12.011  # C
+mass            2 1.008   # H
+
+# DeepMD potential
+pair_style      deepmd graph.pb
+pair_coeff      * *
+
+# MD settings
+timestep        0.001  # 1 fs
+velocity        all create 300.0 12345
+
+# Output
+thermo          100
+thermo_style    custom step temp pe ke etotal
+
+# Run
+dump            1 all custom 100 dump.lammpstrj id type x y z
+fix             1 all nvt temp 300.0 300.0 0.1
+run             1000
+
+write_restart   restart.final

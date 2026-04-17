@@ -1,0 +1,230 @@
+{
+  "_comment": "Paper2ARM Hackathon 提交格式示例 - 用于 Playground 平台 API 提交",
+  
+  "submission_metadata": {
+    "version": "1.0",
+    "submission_type": "ARM_PACKAGE",
+    "submitted_at": "2026-04-16T10:00:00Z",
+    "submitter": {
+      "name": "参赛者姓名",
+      "email": "contestant@example.com",
+      "team": "团队名称（如有）"
+    }
+  },
+
+  "paper_info": {
+    "title": "论文标题示例：基于深度学习的分子性质预测",
+    "authors": ["作者A", "作者B", "作者C"],
+    "year": 2024,
+    "venue": "Nature Machine Intelligence",
+    "doi": "10.1038/s42256-024-xxx",
+    "arxiv": "arXiv:2401.12345",
+    "paper_url": "https://doi.org/10.1038/s42256-024-xxx",
+    "code_url": "https://github.com/example/repo",
+    "bohrium_paper_id": "paper_12345"
+  },
+
+  "reproduction_info": {
+    "target_level": "R1",
+    "description": "本复现实现了论文提出的GNN模型，成功复现了主要实验结果",
+    "key_achievements": [
+      "完整实现了论文提出的模型架构",
+      "复现了Table 1中的主要指标（误差<2%）",
+      "生成了Figure 2-4的所有图表",
+      "在标准数据集上验证了模型性能"
+    ],
+    "limitations": [
+      "未复现消融实验（Ablation Study）",
+      "训练时间比论文报告长20%"
+    ]
+  },
+
+  "arm_package": {
+    "structure": {
+      "paper": {
+        "files": ["paper.pdf", "metadata.json"],
+        "description": "原始论文PDF和元数据"
+      },
+      "plan": {
+        "files": ["plan.md"],
+        "description": "复现计划和任务分解"
+      },
+      "code": {
+        "files": ["main.py", "model.py", "train.py", "evaluate.py", "utils.py"],
+        "description": "完整复现代码"
+      },
+      "trace": {
+        "files": ["reproduction_session.jsonl"],
+        "description": "Agent执行日志"
+      },
+      "dataset": {
+        "files": ["data_description.md"],
+        "description": "数据集说明（数据从公开链接下载）"
+      },
+      "result": {
+        "files": ["figures/", "metrics.json", "predictions.csv"],
+        "description": "复现结果和图表"
+      },
+      "report": {
+        "files": ["ARM_Reproduction_Guide.md", "ARM_Notebook.ipynb", "Dockerfile", "requirements.txt"],
+        "description": "复现报告和配置文件"
+      },
+      "information": {
+        "files": ["human_experience.md"],
+        "description": "人类经验笔记"
+      },
+      "others": {
+        "files": [],
+        "description": "其他文件"
+      }
+    }
+  },
+
+  "results_comparison": {
+    "metrics": [
+      {
+        "name": "MAE",
+        "paper_value": 0.123,
+        "reproduced_value": 0.125,
+        "unit": "eV",
+        "difference_percent": 1.6,
+        "within_tolerance": true,
+        "notes": "在论文报告误差范围内"
+      },
+      {
+        "name": "RMSE",
+        "paper_value": 0.185,
+        "reproduced_value": 0.189,
+        "unit": "eV",
+        "difference_percent": 2.2,
+        "within_tolerance": true,
+        "notes": "略高但在可接受范围"
+      },
+      {
+        "name": "R²",
+        "paper_value": 0.92,
+        "reproduced_value": 0.91,
+        "unit": "",
+        "difference_percent": -1.1,
+        "within_tolerance": true,
+        "notes": ""
+      }
+    ],
+    "figures": [
+      {
+        "figure_id": "Figure 2",
+        "description": "模型架构示意图",
+        "reproduced": true,
+        "similarity": "high",
+        "notes": "使用相同配色和布局"
+      },
+      {
+        "figure_id": "Figure 3",
+        "description": "性能对比柱状图",
+        "reproduced": true,
+        "similarity": "high",
+        "notes": "数值趋势一致"
+      },
+      {
+        "figure_id": "Figure 4",
+        "description": "收敛曲线",
+        "reproduced": true,
+        "similarity": "medium",
+        "notes": "收敛速度略慢但趋势一致"
+      }
+    ]
+  },
+
+  "environment": {
+    "docker_image": "registry.dp.tech/davinci/my-reproduction:20260416",
+    "base_image": "registry.dp.tech/dptech/ubuntu:20.04-py3.10",
+    "python_version": "3.10.12",
+    "key_dependencies": [
+      {"package": "torch", "version": "2.0.1"},
+      {"package": "numpy", "version": "1.24.3"},
+      {"package": "pandas", "version": "2.0.3"},
+      {"package": "scikit-learn", "version": "1.3.0"},
+      {"package": "matplotlib", "version": "3.7.2"}
+    ],
+    "hardware_requirements": {
+      "gpu": "推荐，但CPU也可运行",
+      "memory": "16GB+",
+      "storage": "10GB+"
+    }
+  },
+
+  "execution_info": {
+    "total_runtime": "约2小时",
+    "steps": [
+      {
+        "step": 1,
+        "name": "数据预处理",
+        "runtime": "5分钟",
+        "status": "success"
+      },
+      {
+        "step": 2,
+        "name": "模型训练",
+        "runtime": "1.5小时",
+        "status": "success"
+      },
+      {
+        "step": 3,
+        "name": "评估与可视化",
+        "runtime": "20分钟",
+        "status": "success"
+      }
+    ]
+  },
+
+  "deploymaster_build": {
+    "github_url": "https://github.com/username/paper-reproduction",
+    "branch": "main",
+    "commit": "abc123def456",
+    "build_status": "success",
+    "build_id": "730abe14-18e9-4ff0-9170-56f34927eeed",
+    "docker_image_uri": "registry.dp.tech/davinci/my-reproduction:20260416",
+    "verify_commands": [
+      "python -c \"import torch; print(torch.__version__)\"",
+      "python main.py --mode evaluate --config config.yaml"
+    ]
+  },
+
+  "scoring_4c": {
+    "completeness": {
+      "score": 85,
+      "max_score": 100,
+      "notes": "完成了主要实验，缺少部分消融实验"
+    },
+    "correctness": {
+      "score": 90,
+      "max_score": 100,
+      "notes": "主要指标与论文一致，误差<3%"
+    },
+    "clarity": {
+      "score": 88,
+      "max_score": 100,
+      "notes": "代码结构清晰，文档完整"
+    },
+    "cost": {
+      "score": 80,
+      "max_score": 100,
+      "notes": "资源使用合理，训练时间略长"
+    },
+    "overall_score": 85.5
+  },
+
+  "additional_notes": {
+    "reproducibility_tips": [
+      "随机种子设置为42以确保可复现",
+      "使用提供的Dockerfile构建环境",
+      "数据集从指定链接自动下载"
+    ],
+    "future_work": [
+      "可以尝试更大的模型变体",
+      "可以扩展到其他数据集",
+      "可以优化训练速度"
+    ],
+    "acknowledgments": "感谢论文作者开源代码"
+  }
+}
