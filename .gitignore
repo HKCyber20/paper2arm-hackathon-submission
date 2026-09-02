@@ -3,5 +3,6 @@
 **/venv/
 **/.venv/
 *.log
+*.bundle
 *.tmp
 .DS_Store
